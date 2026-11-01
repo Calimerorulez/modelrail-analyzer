@@ -9,10 +9,13 @@ S88-meetkanalen, 1,3-inch OLED, twee knoppen en USB-C-voeding.
 architectuur. Er is geen bouwbaar schema, PCB of firmware. De aansluiting
 op de werkelijke installatie is nog niet vrijgegeven.**
 
-De aanduiding “1.5” bewijst geen printrevisie. Het oorspronkelijke
-SRSEII-1.5-schema is onderzocht als referentie. De gemelde isolatorprint
-2020/08 wordt apart vergeleken met het oorspronkelijke schema van
-30 augustus 2020. Andere revisies zijn geen bewijs voor deze installatie.
+De eigenaar heeft **SRSEII PCB-revisie 1.8.1a van Gerhard Bertelsmann
+bevestigd**. Dit is de primaire hardwarebasis. De oorspronkelijke bronnen
+bestaan uit het schema/PCB met titelrevisie 1.81 en de expliciete
+1.8.1a-assemblagelijsten; de koppeling en bronverschillen zijn vastgelegd.
+Revisie 1.5 blijft uitsluitend historische vergelijking. Deze identificatie
+sluit fysieke pinout-, kabel-, bestukkings- en spanningsmetingen niet af.
+De afzonderlijke S88-isolator 2020/08 blijft een eigen verificatietraject.
 
 ## Documentatie
 
@@ -26,6 +29,7 @@ SRSEII-1.5-schema is onderzocht als referentie. De gemelde isolatorprint
 | [Bronnenregister](docs/06-bronnenregister.md) | Primaire bronnen, revisies, vindplaatsen en bronconflicten |
 | [Ontwerpbesluiten](docs/07-ontwerpbesluiten.md) | Besluiten, redenen en voorwaarden voor herziening |
 | [Overdracht en validatie](docs/08-overdracht-en-validatie.md) | Open punten, vervolgfasen, geplande ERC/DRC en actuele controlestatus |
+| [SRSEII 1.8.1a versus 1.5](docs/09-srseii-revisievergelijking.md) | Oorspronkelijke bronset, CAN/S88, pinouts, voeding, PIC en terminatie |
 
 ## Betekenis van statussen
 
@@ -41,10 +45,10 @@ componentfout of kabelkortsluiting uit.
 
 ## Eerstvolgende stap
 
-Voer de installatie-inspectie en metingen M01–M07 uit uit het
-[meetplan](docs/05-veiligheid-en-meetplan.md). Leg printrevisies,
-connectororiëntatie, kabelcontinuïteit, voedingsniveaus, isolatie en
-CAN-terminatie vast. Pas na sluiting van de overdrachtscriteria volgt
+Voer de installatie-inspectie en metingen M01–M07 uit volgens het
+[meetplan](docs/05-veiligheid-en-meetplan.md). Vul de bevestigde SRSEII-revisie
+aan met bestukkingscontrole, connectororiëntatie, kabelcontinuïteit,
+voedingsniveaus, isolatie en CAN-terminatie. Pas na sluiting van de overdrachtscriteria volgt
 een afzonderlijke KiCad-schemafase.
 
 De automatische KiCad ERC en DRC zijn **nog niet uitgevoerd**: eigen
@@ -55,7 +59,10 @@ gescheiden gehouden van de fysieke elektrische beoordeling.
 
 De eigen documentatie in deze repository valt onder de [MIT-licentie](LICENSE).
 Externe schema's en datasheets behouden hun eigen rechten. Ze worden
-gelinkt en niet in deze repository heruitgegeven. Er is nog geen remote
-repository aangemaakt of gepubliceerd. De licentie voor toekomstige
+gelinkt en niet in deze repository heruitgegeven. De repository is gepubliceerd
+op [GitHub](https://github.com/Calimerorulez/modelrail-analyzer);
+`origin` verwijst naar `https://github.com/Calimerorulez/modelrail-analyzer.git`.
+De oorspronkelijke commits `0aefe4a` en `5558256` zijn naar `main` gepusht
+en op de remote bevestigd. De licentie voor toekomstige
 hardwarebestanden wordt vóór fase 2 afzonderlijk vastgelegd.
 

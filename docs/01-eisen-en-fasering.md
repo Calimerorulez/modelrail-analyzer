@@ -10,6 +10,13 @@ CAN/S88 verwerken; de analyzer observeert de fysieke CAN-bus en S88 aan
 de **modulezijde** van de bestaande isolator. De analyzer vervangt of
 repareert die isolator niet.
 
+**U, bevestigd door eigenaar [U02]:** de gebruikte SRSEII is PCB-revisie
+**1.8.1a**. De primaire bronset en vergelijking met de uitsluitend
+historische 1.5 staan in [document 09](09-srseii-revisievergelijking.md).
+De bronset omvat oorspronkelijke bestanden met titelrevisie 1.81 en
+1.8.1a-assemblagelijsten. Deze identificatie bevestigt geen fysieke
+contactnummers, kabels, jumperstanden, voeding of individuele bestukking.
+
 Deze fase levert uitsluitend eisen, architectuur, pinoutonderzoek,
 componentkandidaten, veiligheidsanalyse en een verificatieplan.
 Er worden geen eigen elektrische aansluitingen definitief gemaakt.
@@ -58,6 +65,7 @@ kwalificatie. Het zijn geen eigenschappen van bestaande of ontworpen hardware.
 | E10 | Geen S88-eindterminatie toegevoegd | Geen 120 Ω op S88; bestaande serieweerstanden of filters blijven ongewijzigd |
 | E11 | CAN/S88 worden niet door een actief deel van de analyzer doorgelust | Bestaande communicatie blijft werken bij verwijderen of uitschakelen van het hoofdapparaat; eventuele meetadapter heeft uitsluitend gecontroleerde directe doorverbindingen |
 | E12 | Probe aangesloten: geen functionele verandering en geen betekenisvolle afname van gemeten marge | Zelfde bedrijfspatroon, gemeten LOW/HIGH, flanken, samplemarge en fouttellingen vóór/na; voorlopig amplitudeverschil ≤2%, flank-/timingverschil ≤5%, én alle oorspronkelijke marges blijven geldig |
+| E13 | SRSEII 1.8.1a als primaire hardwarebasis gebruiken; 1.5 uitsluitend historische vergelijking | Bronset op commit vastleggen en schema-, PCB- en assemblagevarianten onderscheiden; fysieke toepassing blijft M01–M07 |
 
 E12 is pas bruikbaar met vastgelegde meetonzekerheid. Een resultaat binnen
 deze percentages kan alsnog onacceptabel zijn bij een al marginale bus.

@@ -4,6 +4,13 @@ Status: **O**. Dit document legt functies en elektrische grenzen vast,
 geen definitief schema of connectorontwerp. Verwijzingen [Sxx] staan in
 het [bronnenregister](06-bronnenregister.md).
 
+De bestaande installatie wordt nu gebaseerd op de door de eigenaar
+bevestigde **SRSEII PCB-revisie 1.8.1a** [U02]. De primaire
+GBert-bronset [S24–S27] en historische vergelijking met 1.5 staan in
+[document 09](09-srseii-revisievergelijking.md). De gewijzigde
+SRSEII-transceiver en voeding veranderen de analyzergrenzen niet:
+eigen voeding, drie domeinen, geen terminatie en geen actief zendpad.
+
 ## 1. Drie elektrische domeinen
 
 ```mermaid
@@ -55,6 +62,10 @@ aan beide zijden van de bestaande isolator gemeten.
 ## 2. CAN: drie onafhankelijke beperkingen
 
 Kandidaat: TJA1051T/3 met geïsoleerde 5 V en lokale 3,3 V VIO [S09].
+Dit is de analyzerkandidaat; de oorspronkelijke 1.8.1a-SRSEII-bronset
+gebruikt SN65HVD230 op VCC, terwijl connector P8.2 +5 V blijft [S24].
+Geen van die bestaande voedingspinnen voedt de analyzer. Ontvangst wordt
+getoetst aan gemeten CAN-niveaus, niet aan de oude 1.5-componentkeuze.
 
 1. **Hardware-silent:** S blijft lokaal HIGH, zonder MCU-pad of
    programmeerbare jumper. De ontvanger blijft actief.

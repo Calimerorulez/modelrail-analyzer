@@ -12,8 +12,10 @@ installatie zijn nog onbekend. Functionele galvanische isolatie is het
 architectuurdoel. Er wordt geen netspannings-, medische of andere
 gecertificeerde beschermingsfunctie geclaimd.
 
-Voor aansluiting eerst revisies, voedingspaden en signaalreferenties
-vaststellen. De op 28 oktober gemelde onvolledige isolator is geen
+De SRSEII-revisie **1.8.1a is door de eigenaar bevestigd** [U02]. Voor
+aansluiting blijven voedingspaden, signaalreferenties, bestukking,
+connectoren en kabels fysiek te controleren tegen de primaire bronset
+[S24–S27]. De op 28 oktober gemelde onvolledige isolator is geen
 bruikbaar aansluitpunt totdat opbouw en werking afzonderlijk zijn gecontroleerd.
 Deze opdracht omvat geen blind bestukken of voeden van die print.
 
@@ -63,11 +65,16 @@ vast wanneer iets nog ontbreekt of niet meetbaar is; geen waarde raden.
 ### M01 — identificatie en actuele bestukking
 
 - Noteer artikelnummer/label van de Gleisbox, voedingsadapter en alle boosters.
-- Leg SRSEII-silkscreen, printdetails, PIC-markering, jumpers en modificaties vast.
+- Neem de bevestigde SRSEII-revisie 1.8.1a als identificatie over; vul die
+  aan met silkscreenfoto, printdetails, PIC-markering, spoel L100, jumpers
+  en modificaties. Dit is aanvullende bewijsregistratie, geen heropening
+  van de door de eigenaar bevestigde revisie.
 - Leg beide zijden van isolator 2020/08 vast, inclusief werkelijk geplaatst U3,
   CD4504BM-referentie, RJ45's, regulator, bypass en filters.
 - Vergelijk relevante koperpaden met de bevroren oorspronkelijke bron.
-  Een andere PIC kan een vervanging zijn; dat stelt de printrevisie niet vast.
+  De bronset noemt PIC18F25K80 en 15/18 µH-varianten; de eerder gemelde
+  eigen PIC18F26K80 vraagt aparte bestukkingsregistratie. Dit verandert
+  de bevestigde PCB-identificatie niet.
 - Noteer firmware 1.27 en UID als U totdat er een bestaand log of andere
   verificatie is toegevoegd. Geen nieuwe discovery-/programmeeractie nodig.
 
@@ -103,7 +110,9 @@ transiëntmarge moeten nog uit installatiegegevens worden begrensd.
 
 Leg alle nodes, verdelers, kabels en vermoedelijke eindpunten vast.
 Meet CANH–CANL op het geïdentificeerde meetpunt met alle voedingen uit.
-Registreer bestaande jumperstanden. Waar nodig, met de installatie uit,
+Registreer bestaande jumperstanden, met name CAN_TERM P7 met R11 120 Ω
+in de primaire bronset. R21 hoort bij RS485, niet bij CAN. Waar nodig,
+met de installatie uit,
 deelverbindingen losnemen om de plaats van terminatoren te bepalen en
 daarna de oorspronkelijke toestand herstellen.
 

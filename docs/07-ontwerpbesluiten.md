@@ -19,12 +19,14 @@ elektrische implementatie. “Voorlopig” vraagt nog bron-/meetbevestiging.
 | ADR-012 | Open | Gemeenschappelijke S88-capturemethode nog kiezen | Vier RMT-kanalen bewijzen geen simultane opname; LCD_CAM vraagt framing-/DMA-analyse; eerst haalbaarheidsbeoordeling |
 | ADR-013 | Vast | Capturetijd, frontendvertraging en verliesstatus expliciet maken | Geen softwarecallback als exacte fysieke flank presenteren; ruwe data blijft beschikbaar |
 | ADR-014 | Voorlopig | USB-C 5 V sink met stroomadvertentiedetectie en belastingvrijgave | Voorlopig vermogensbudget past niet vanzelf op een standaard USB-bron; definitief pad nog berekenen |
-| ADR-015 | Vast | Exacte installatieadapter pas na connector-/kabelkaart | SRSEII-1.5 en 2020-isolatorschema zijn referenties; andere revisies niet mengen |
+| ADR-015 | Vast | Exacte installatieadapter pas na connector-/kabelkaart | Primaire SRSEII-basis is eigenaar-bevestigde 1.8.1a met S24–S27; 1.5 uitsluitend historisch. De losse isolator 2020/08 houdt haar eigen bron-/meettraject |
 | ADR-016 | Vast | Geen NSI8141W1 of andere latere vervanging aannemen voor de bestaande isolator | U3 en refdes verschillen tussen bronnen; fysieke match nodig |
 | ADR-017 | Vast | Automatische ERC/DRC verplicht in de bijbehorende latere fasen | Softwarecontrole en fysieke veiligheid hebben afzonderlijke acceptatiecriteria |
 | ADR-018 | Vast voor huidige bestanden | Eigen documentatie onder MIT; externe bronnen uitsluitend verwijzen | Open-source start zonder rechten op externe schema's te veronderstellen. Hardwarelicentie vóór eigen KiCad-bestanden bepalen; CERN-OHL-v2 is een te beoordelen optie |
-| ADR-019 | Vast | Lokale Git-commits; nog geen remote publicatie | Opdracht vraagt versiebeheer; publicatieadres/account is niet opgegeven. Commits krijgen auteur Codex bij ontbreken van ingestelde identiteit |
+| ADR-019 | Vast, bijgewerkt na publicatie | Lokale commits en push naar bestaande GitHub-repository `Calimerorulez/modelrail-analyzer`, branch main | Origin is ingesteld op de exacte HTTPS-URL; eerdere commits zijn gepubliceerd en remote bevestigd. Nieuwe pushes eveneens remote verifiëren; auteur Codex bij ontbrekende ingestelde identiteit |
 | ADR-020 | Vast | Fysieke hardware metingen zijn niet in deze omgeving verricht | Open meetpunten worden niet afgevinkt op basis van aannames of software-uitvoer |
+| ADR-021 | Vast | PCB 1.8.1a overnemen als expliciet door eigenaar bevestigde identificatie [U02] | Herroept de eerdere onzekerheid over de eigen SRSEII-revisie; bevestigt geen individuele onderdelen, pinout, kabels, spanningen of terminatie |
+| ADR-022 | Vast | Primaire bronset bestaat uit oorspronkelijke 1.81-schema/PCB plus expliciete 1.8.1a-assemblagelijsten op bevroren commit | Geen apart a-schema aangetroffen; bronherkomst, 18/15 µH-verschil en assemblageheaders vastgelegd in document 09. Huidig master 1.82 en legacy .sch 1.7 niet verwisselen met deze set |
 
 Een vervolgwijziging noemt het besluit-ID, de nieuwe bron of meting,
 de gevolgen voor eisen/BOM en de relevante Git-commit. Gesloten punten

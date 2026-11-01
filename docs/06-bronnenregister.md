@@ -10,7 +10,8 @@ aanvullend inspectie en meting.
 | ID | Primaire bron | Onderzochte versie / plaats | Gebruik en beperking |
 | --- | --- | --- | --- |
 | U01 | Hardwareopgave eigenaar in dit gesprek | Bericht ontvangen 2026-11-01; eerdere inspectie 2026-10-28 | U-status, vastgelegd in document 02; geen foto's, fysieke metingen of firmwarehash opnieuw gecontroleerd |
-| S01 | [GBert SRSE2_V1.5.pdf](https://github.com/GBert/misc/blob/master/srse2/SRSE2_V1.5.pdf) | Rev.1.5, 2020-06-12, blad 1/1; CAN, S88, P7/P8/P18/P19 | Bronpinouts; PDF is raster, volledig en in vergrote uitsneden bekeken. Geen bewijs van de eigen revisie |
+| U02 | Expliciete hardwarecorrectie eigenaar in dit gesprek | Ontvangen 2026-11-01: daadwerkelijk gebruikte SRSEII PCB-revisie **1.8.1a**, 1.5 niet de eigen hardware | U-bevestigde identificatie; sluit fysieke pinout-, kabel-, bestukkings- of spanningscontrole niet af |
+| S01 | [GBert SRSE2_V1.5.pdf](https://github.com/GBert/misc/blob/81b6241cb9d47778daf0326e21210120ba24c2a5/srse2/SRSE2_V1.5.pdf), [oorspronkelijk 1.5-schema](https://github.com/GBert/misc/blob/81b6241cb9d47778daf0326e21210120ba24c2a5/srse2/SRSE2.sch) | Rev.1.5, 2020-06-12; oorspronkelijke commit `81b6241cb9d47778daf0326e21210120ba24c2a5` | **Uitsluitend historische vergelijking**; raster-PDF visueel onderzocht; native bron voor onder meer PIC-footprint |
 | S02 | [GBert s88isolated_V1.0.pdf](https://github.com/GBert/railroad/blob/master/s88isolated/s88iso/s88isolated_V1.0.pdf) | Rev.1.0, 2020-08-30, blad 1/1 | Visueel volledig en vergroot onderzocht; kandidaat voor print 2020/08, nog geen spoor-/bestukkingsmatch |
 | S03 | [GBert S88-isolator README](https://github.com/GBert/railroad/blob/master/s88isolated/s88iso/README.md) | Via GitHub-connector gelezen; blob `decbaf0dbeb82c97c499aa4404e531d390b0d577` | Andere referenties/onderdeelvariant dan S02; niet als bestukkingslijst voor 2020/08 gebruiken |
 | S04 | [Ontwerper GBert: Gleisbox als Zentrale, openingsbericht](https://www.stummiforum.de/t160368f7-Gleisbox-als-Zentrale.html) | Eerste bericht van bertr2d2, zichtbare wijzigingsdatum 2026-01-15 | Waarschuwing massasluiting en 5 V-keuze SRSEII-zijde; bericht bevat ook latere revisies en is veranderlijk |
@@ -18,11 +19,20 @@ aanvullend inspectie en meting.
 | S06 | [RailCommunity RCD-688](https://normen.railcommunity.de/RCD-688.pdf) | 2020-12-06, §2.2 p.2 en §3.1 p.3 | S88-N-contacten, voeding en timing; daadwerkelijke implementatie apart meten |
 | S07 | [Märklin CAN-protocol 2.0](https://streaming.maerklin.de/public-media/cs2/cs2CAN-Protokoll-2_0.pdf) | 2012-02-07, 68 pagina's; p.5 en p.39–40 visueel gecontroleerd | CAN-formaat en terugmeldcommando's. Geen connectorpinout of bewijs van PIC-firmware 1.27 |
 | S08 | [NXP AN10211](https://www.nxp.com/docs/en/application-note/AN10211.pdf) | Rev.02, 2006-11-10, §2 p.3 | Algemene HS-CAN-topologie en 120 Ω per uiteinde; geen beschrijving van de eigen Märklin-terminatie |
+| S24 | [GBert native schema](https://github.com/GBert/misc/blob/4562014c9548e4880c6216b4975b004596e937e1/srse2/SRSE2.kicad_sch), [native PCB](https://github.com/GBert/misc/blob/4562014c9548e4880c6216b4975b004596e937e1/srse2/SRSE2.kicad_pcb) | Commit `4562014c9548e4880c6216b4975b004596e937e1`, 2023-11-22; titelrevisie **1.81**, datum 2022-12-08 | **Primaire elektrische bron binnen de 1.8.1a-bronset**; schema visueel en connector-/padnetten onderzocht; fysieke toepassing blijft M |
+| S25 | [GBert SRSE2_V1.8.1.pdf](https://github.com/GBert/misc/blob/4562014c9548e4880c6216b4975b004596e937e1/srse2/SRSE2_V1.8.1.pdf) | Titelrevisie 1.81, 2022-12-08, blad 1/1 | Oorspronkelijke visuele familiereferentie; tekent nog L100 18 µH, geen afzonderlijke a-schema-PDF |
+| S26 | [BOM 1.8.1a](https://github.com/GBert/misc/blob/4562014c9548e4880c6216b4975b004596e937e1/srse2/SRSE2_BOM_V1_8.1a.csv), [CPL 1.8.1a](https://github.com/GBert/misc/blob/4562014c9548e4880c6216b4975b004596e937e1/srse2/SRSE2_CPL_V1_8.1a.csv), [bestaande 1.8.1-archive](https://github.com/GBert/misc/blob/4562014c9548e4880c6216b4975b004596e937e1/srse2/SRSE2_V1.8.1_JLCPCB_Assembly_service.ZIP) | Dezelfde bevroren commit als S24 | Expliciete a-assemblagelijsten met P00/P01; archive heeft 1.8.1-lijsten en Gerbers, geen apart bewezen a-productiearchief |
+| S27 | [Toevoeging a-lijsten](https://github.com/GBert/misc/commit/b2ad6cd00db5ced726d1335ca48bb7aa2e657b3f), [spoelbeschikbaarheid](https://github.com/GBert/misc/commit/2a8f674d560dec63c486839b868f3a21de276e4c), [latere bron-/BOM-update](https://github.com/GBert/misc/commit/4562014c9548e4880c6216b4975b004596e937e1) | 2023-09-18 en 2023-11-22 | Herkomst van a-lijsten en 18/15 µH-variant; geen bewijs van eigen bestukking |
 
 Het actuele GBert-overzicht bevat bestanden van verschillende revisies.
-Het is nadrukkelijk geen revisieselectie op basis van de nieuwste datum:
+De primaire bronset is geselecteerd op de eigenaar-bevestigde 1.8.1a
+en bevroren in S24–S27, niet op de nieuwste datum. Overzichtspunten:
 [SRSEII-directory](https://github.com/GBert/misc/tree/master/srse2) en
 [isolator-directory](https://github.com/GBert/railroad/tree/master/s88isolated/s88iso).
+Het onderzochte huidige SRSEII-`master` heeft native titelrevisie 1.82;
+het legacybestand `.sch` draagt 1.7. Die bestanden zijn geen vervanging
+van S24. Zie [document 09](09-srseii-revisievergelijking.md) voor de
+afzonderlijke rollen van schema-/PCB-revisie, a-assemblage en fysieke print.
 
 ## 2. Componenten en ontwikkelomgeving
 
@@ -43,6 +53,7 @@ Het is nadrukkelijk geen revisieselectie op basis van de nieuwste datum:
 | S21 | [KiCad CLI-documentatie](https://docs.kicad.org/9.0/en/cli/cli.html) | 9.0.9-handleiding als referentie; de hier aanwezige CLI is 10.0.7 en zijn eigen ERC-/DRC-help is apart gecontroleerd |
 | S22 | [Espressif ESP32-S3 camera low-level driver](https://github.com/espressif/esp32-camera/blob/v2.1.3/target/esp32s3/ll_cam.c), [camera HAL](https://github.com/espressif/esp32-camera/blob/v2.1.3/driver/cam_hal.c) | Versietag v2.1.3; pinrouting, start/stop, VSYNC en DMA-bytebegrenzing als onderbouwing voor vervolgonderzoek, niet als analyzerimplementatie |
 | S23 | [ESP-IDF RMT](https://docs.espressif.com/projects/esp-idf/en/v5.5.3/esp32s3/api-reference/peripherals/rmt.html) | v5.5.3; symboolopbouw, RX-geheugen en transactionele ontvangst |
+| S28 | [TI SN65HVD23x](https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf) | SLOS346O, april 2018; 3,3 V-voeding, pinfuncties en Rs-modus. Gebruikt voor de bestaande SRSEII-component, niet als nieuwe analyzerselectie |
 
 Deze links zijn opzoekpunten. Waar een latere versie wordt opgehaald,
 revisie en relevante tabellen opnieuw vergelijken vóór gebruik. Een
@@ -62,6 +73,12 @@ bytes; `master`-links kunnen in de toekomst wijzigen.
 | S05 `Handleiding_S88-Isolator.pdf` | `890673482ba33e825da26ce6441820d771eed2dc2c3bee4c82c406aa2eb11c5f` |
 | S07 `cs2CAN-Protokoll-2_0.pdf` | `98b3d6cb884cb74cfd33a5e2e6a11430b431f7743a49db73d577274c8f46bc7a` |
 | S11 `esp32-s3-wroom-1.pdf` | `27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435` |
+| S25 `SRSE2_V1.8.1.pdf` | `3a30fd8efd0a2c340ef2b1dc21940f100507899f5349724bf3d10572c586701f` |
+| S24 `srse2-181a/SRSE2.kicad_sch` | `46d440e723ef04c6f1327388ddf3d06cc30d2e310eb9ca17fdddbc05514251c1` |
+| S24 `srse2-181a/SRSE2.kicad_pcb` | `abd34d6fb5bfd9a12cc285f4f48fe86c04c6b07d049cfa88873aa63441c1dd4a` |
+| S26 `srse2-181a/SRSE2_BOM_V1_8.1a.csv` | `64caa710917fb3bf1d8676c9d164a8c05dfc36ac86d30d301176287b8057b20f` |
+| S26 `srse2-181a/SRSE2_CPL_V1_8.1a.csv` | `cae11373d6c784fc07f7e9d9433a252b55b73ebd66c2417c5c24b256087c6c41` |
+| S26 `srse2-181a/SRSE2_V1.8.1_JLCPCB_Assembly_service.ZIP` | `e3ed58004eb2a0eae2ba074cb4f053ce96a6509f8e7c8232dfe72c3002924bde` |
 
 GitHub rapporteerde voor S01 blob `809e1a114d084a3cc7648be493c0048d5956a667`
 en voor S02 blob `f19e8cabad31dcdb6381b5e04b673e23ec04045c`.
@@ -76,8 +93,12 @@ geen complete bronrevisie van de eigen print.
 - De Märklin-2.0-PDF en beide GBert-schema's waren via de webtool niet
   leesbaar. Ze zijn rechtstreeks van de primaire host gedownload en lokaal
   onderzocht. De GitHub-connector ondersteunt alleen tekst voor deze functie.
-- De oorspronkelijk gemelde SRSEII-1.8/1.8.1a-documenten zijn nog niet
-  gekoppeld aan de geïnstalleerde print. Geen stilzwijgende gelijkstelling.
+- De eigenaar bevestigt nu PCB 1.8.1a [U02]; S24–S27 vormen de primaire
+  bronset. Een apart a-schema of a-Gerberarchief is niet aangetroffen.
+  De fysieke match van contacten, kabels en bestukking blijft afzonderlijk open.
+- Grote/binaire CAD- en archivebestanden zijn rechtstreeks van de primaire
+  host op de bevroren commit gedownload waar de GitHub-connector ze niet
+  kon verwerken. Alleen eigen documentatie wordt gecommit.
 - Voor de Gleisbox zelf ontbreekt nog het exacte artikelnummer en een
   bewezen connector-/terminatiekaart. Er is geen Mini-DIN-bedrading vrijgegeven.
 - PIC-firmware 1.27 is U-informatie. De daadwerkelijke bron-/buildrevisie en

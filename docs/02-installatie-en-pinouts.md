@@ -6,7 +6,8 @@ Bron-ID's verwijzen naar het [bronnenregister](06-bronnenregister.md).
 
 ## 1. Wat over de eigen installatie bekend is
 
-Deze tabel bewaart de informatie van de eigenaar uit dit gesprek [U01].
+Deze tabel bewaart de informatie van de eigenaar uit dit gesprek [U01],
+gecorrigeerd door diens expliciete bevestiging van PCB-revisie 1.8.1a [U02].
 Er zijn hier geen foto's, meetbestanden of apparaten opnieuw onderzocht.
 
 | Onderdeel | Gegevens | Status |
@@ -14,11 +15,11 @@ Er zijn hier geen foto's, meetbestanden of apparaten opnieuw onderzocht.
 | SRSEII | Gerhard Bertelsmann; Onion Omega2+ | U |
 | CAN/S88-controller | PIC18F26K80; device-ID `0x6126`; silicon revision `06` | U; geen afleiding naar PCB-revisie |
 | PIC-firmware | 1.27, volgens eerdere verificatie op 2026-10-28 | U; geen broncode/binaire hash aangeleverd |
-| SRSEII-print | Eerder documentatie van 1.5, 1.8 en 1.8.1a gebruikt | U; daadwerkelijk gemonteerde printrevisie M |
+| SRSEII-print | **PCB-revisie 1.8.1a van GBert** | **U; door eigenaar bevestigd [U02]**; fysieke pinout-/kabelverificatie blijft M |
 | Gleisbox | Märklin digitale Gleisbox met MS2, aangesloten op SRSEII | U |
 | Gleisbox-artikelnummer | Mogelijk 60113 of 60116; nog niet vastgesteld | M |
 | Gleisbox-UID | `0x47459FB0` | U; identificeert geen connectorbezetting of PCB-revisie |
-| Aanduiding “1.5” | Eerder gebruikt voor de installatie | U; geen bewezen printrevisie of Gleisbox-type |
+| Aanduiding “1.5” | Eerdere onjuiste hardwarebasis | Historisch; volgens eigenaar niet de gebruikte SRSEII-print [U02] |
 | S88-isolator | GBert-zelfbouwprint met opdruk `2020/08` | U |
 | Isolatoropschriften | `Zentrale_S88`, `Input_S88`, `U3`, `J1`, `S88` | U |
 | CD4504BM | Volgens inspectie aanwezig | U; gemonteerd/los en precieze referentie nog inspecteren |
@@ -33,29 +34,43 @@ Onderdeelmarkeringen, referenties en bestukkingsstatus worden afzonderlijk
 geregistreerd. Tot die inspectie geldt de isolator niet als een bewezen
 werkende scheiding.
 
-## 2. Referentie SRSEII 1.5
+## 2. Primaire referentie SRSEII 1.8.1a
 
-**B, uitsluitend [S01]:** schema revisie 1.5, 2020-06-12, blad 1/1.
-De titel noemt Gleisbox 60113. Het schema tekent een PIC18F25K80,
-MCP2562 en schakelbare R11 van 120 Ω via P7.
-De gemelde PIC18F26K80 is dus geen bewijs van gelijkheid.
+**U [U02]:** PCB-revisie 1.8.1a is door de eigenaar bevestigd.
+**B [S24–S27]:** GBerts oorspronkelijke schema/PCB dragen titelrevisie
+`1.81`; de expliciete `1.8.1a`-BOM/CPL vormen de assemblagevariant.
+Een apart `SRSE2_V1.8.1a.pdf` is niet aangetroffen. De herleidbare
+koppeling en verschillen staan in [document 09](09-srseii-revisievergelijking.md).
 
-| Bronconnector | Pennen volgens schemasymbool |
+De bronset bevat U3 SN65HVD230 op VCC (ontworpen als 3,3 V), U4
+PIC18F25K80 in SSOP-28 en R11 120 Ω met jumper P7. De gemelde eigen
+PIC18F26K80 [U01] blijft apart staan: een verschil in componentbestukking
+trekt de bevestigde PCB-revisie niet in, maar vraagt wel registratie.
+
+| Bronconnector | Pennen volgens 1.81-schema en bijbehorende PCB-netten [S24] |
 | --- | --- |
 | P8 CAN | 1 GND; 2 +5 V; 3 CANL; 4 CANH |
 | J2 CAN RJ45 | 1 `br` naar P19.1; 2 `rt` naar P19.2; 3 NC; 4 GND; 5 NC; 6 naar P3.2; 7 CANL; 8 CANH; shield NC |
-| J1 S88-N RJ45 | 1 Vdd; 2 DATA; 3/5 GND; 4 CLOCK; 6 LOAD; 7 RESET; 8 niet verbonden |
-| P18 spanningskeuze | 2 Vdd; keuze tussen +5 V en uitgang 7812 |
+| J1 S88-N RJ45 | 1 Vdd; 2 DATA; 3/5 GND; 4 CLOCK; 6 LOAD; 7 RESET; 8 uitsluitend naar P15; shield NC |
+| P18 spanningskeuze | 1 net 12V uit LM317; 2 Vdd; 3 +5 V |
+| P13 voedingsaansluiting | 1 net +24V; 2 GND; 3 +5 V |
 
 **M:** P19-/P3-bedrading, connectororiëntatie en werkelijke spanningen.
 De labels `br`/`rt` zijn geen bewijs van een vaste spanningsrail. J2.6
 mag niet zonder controle als GND of voeding worden geïnterpreteerd.
-Het lokaal getekende net `+24V` bewijst geen gemeten voedingsspanning.
+Het getekende net `+24V` bewijst geen gemeten voedingsspanning;
+de oorspronkelijke PCB heeft ook opschrift `18V`.
 
-De 1.8-/1.8.1a-documentatie uit eerder werk is niet als bewijs gebruikt.
-Pas na revisie-identificatie wordt het bijbehorende oorspronkelijke ontwerp
-geselecteerd. Een nieuwere `master`-netlist mag de bevroren 1.5-PDF niet
-stilzwijgend vervangen.
+De schema-/PCB-pinbezetting is bronbevestigd, niet fysiek op de eigen
+connectoren en kabels gemeten. Een gelijk netnaamveld bewijst evenmin
+de juiste kijkrichting of de continuïteit van een daadwerkelijk kabelpad.
+Revisie 1.5 [S01] is uitsluitend historische vergelijking. Correctie op
+de eerdere tekst: ook in 1.5 gaat J1.8 naar P15; dit is geen RAILDATA-bron
+en geen verbinding naar de overige SRSEII-elektronica.
+
+De huidige native `master`-bestanden dragen inmiddels revisie 1.82.
+Gebruik daarom de vastgelegde historische broncommit, niet willekeurig
+de nieuwste `SRSE2.kicad_sch` of het oude `.sch`-bestand (titelrevisie 1.7).
 
 ## 3. Referentie isolator van augustus 2020
 
@@ -169,7 +184,9 @@ een geverifieerde SRSEII-CAN-aftakking worden gebruikt; ook die keuze is open.
 
 ## 7. Nog ontbrekende bewijzen
 
-Geen primaire bron verbindt op dit moment ondubbelzinnig alle gevonden
-schema's met de geïnstalleerde hardware. Voor G1 zijn de meetresultaten
+De eigen PCB-revisie 1.8.1a is bevestigd door de eigenaar; de bronset is
+geselecteerd. Exacte bestukking, wijzigingen, connectoren, kabels en
+voedingsstanden zijn daarmee nog niet fysiek bevestigd. Voor G1 zijn de
+meetresultaten
 M01–M07 uit [document 05](05-veiligheid-en-meetplan.md) vereist,
 naast een ondertekende/gedateerde bron-naar-printvergelijking.

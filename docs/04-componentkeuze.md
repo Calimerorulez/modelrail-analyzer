@@ -4,6 +4,12 @@ Alle selecties zijn **O**, ook waar een onderdeel volgens een **B**-datasheet
 een bepaalde functie ondersteunt. Geen bestel-BOM, footprints of definitieve
 elektrische aansluitingen. Bronnen: [register](06-bronnenregister.md).
 
+De **bestaande SRSEII is eigenaar-bevestigd als PCB 1.8.1a** [U02].
+Haar oorspronkelijke bronset [S24–S27] noemt SN65HVD230, TPS5430DDA,
+LM317 en PIC18F25K80/SSOP-28. Dit is geen BOM voor de analyzer en ook
+geen vervanging van de eerder gemelde eigen PIC18F26K80. De
+[revisievergelijking](09-srseii-revisievergelijking.md) bewaart deze verschillen.
+
 ## 1. Kandidaten
 
 | Functie | Voorkeurskandidaat | Reden en nog te sluiten controle |

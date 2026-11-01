@@ -4,11 +4,17 @@ Datum: **2026-11-01**. Uitgevoerde scope: documentatie en architectuur.
 Installatievrijgave G1: **open**. Geen definitieve elektrische verbinding,
 schema, PCB-layout, firmware of productiebestand gemaakt.
 
+**Identificatiecorrectie [U02]:** de eigenaar bevestigt de gebruikte
+SRSEII als PCB-revisie **1.8.1a**. Dit onderdeel van de identificatie is
+gesloten. De primaire oorspronkelijke bronset en historische vergelijking
+met 1.5 staan in [document 09](09-srseii-revisievergelijking.md).
+De afzonderlijke fysieke verificaties blijven open.
+
 ## 1. Eerst te sluiten punten
 
 | ID | Open punt | Bewijs voor sluiting | Verantwoordelijke vervolgstap |
 | --- | --- | --- | --- |
-| G1-01 | Eigen SRSEII-revisie, Gleisbox-artikelnummer en isolatorbestukking | M01, bron-naar-printvergelijking en actuele toestand | Eigenaar inspecteert; documentatie daarna vergelijken |
+| G1-01 | SRSEII-revisie **1.8.1a U-bevestigd**; nog open: individuele bestukking/modificaties, Gleisbox-artikelnummer en isolatorbestukking | M01, bron-naar-printvergelijking en actuele toestand; eerder gemelde PIC18F26K80 versus bron-F25 apart registreren | Aanvullende inspectie; bevestigde SRSEII-revisie niet opnieuw als onbekend behandelen |
 | G1-02 | Connectororiëntatie, kabels en gebruikte poorten | M02 met volledige contactkaart; geen Mini-DIN-aanname | Eigenaar/uitvoerder meet; adapterkeuze daarna uitwerken |
 | G1-03 | Werkelijke galvanische scheiding en voedingspaden | M03; geen onverklaarde massa-/scherm-/debugbrug | Inspectie en gemeten domeinkaart |
 | G1-04 | CAN-terminatie en topologie | M04; plaats en toestand van bestaande afsluitingen bekend | Bestaande installatie spanningsloos onderzoeken |
@@ -18,17 +24,19 @@ schema, PCB-layout, firmware of productiebestand gemaakt.
 | G1-08 | Ingangsbeveiliging en voedingsgedrag dimensioneerbaar | Bekende fout-/transiëntgrenzen; componentmaxima en alle voedingsstanden doorgerekend | Na installatiegegevens exacte frontend- en voedingskeuze uitwerken |
 | G1-09 | Mechanica, meetkabelbudget, opslagduur en bronlicenties | Vastgelegde gebruikseisen en licentiebesluit voor toekomstige hardware | Vóór eigen schema/componenten vrijgeven |
 
-De huidige aflevering maakt de open punten reviewbaar, maar sluit ze
-niet. De eerste fysieke actie is inspectie M01, niet het aansluiten van
+De documentatiecorrectie sluit de door de eigenaar bevestigde SRSEII-
+revisie-identificatie, maar niet de overige installatiepunten. De eerste
+fysieke actie blijft aanvullende inspectie M01, niet het aansluiten van
 een generieke CAN- of S88-adapter.
 
 ## 2. Wat in deze fase is gecontroleerd
 
 | Onderdeel | Uitkomst |
 | --- | --- |
-| Bestaande repository | Werkmap was leeg en had geen Git-repository; lokaal `main` geïnitialiseerd |
+| Repository | Oorspronkelijk lokaal geïnitialiseerd; inmiddels gepubliceerd op `Calimerorulez/modelrail-analyzer`. Origin heeft de juiste HTTPS-URL; remote main was bij start van deze correctie bevestigd op `55582566e8327d698279d52d0d18ffa426d73986` |
 | Lokale instructies | Geen toepasselijke AGENTS.md gevonden in de werkmap of bovenliggende paden |
-| Primaire SRSEII-/isolatorbronnen | Bevroren PDF's visueel onderzocht; bronconflict en revisiebeperking vastgelegd |
+| Primaire SRSEII-/isolatorbronnen | Primaire SRSEII-set S24–S27 voor 1.8.1a geselecteerd; 1.5 uitsluitend historisch. Oorspronkelijke PDF's, native schema, PCB-padnetten, BOM/CPL en archive onderzocht; losse isolatorbronconflict blijft bestaan |
+| Native broncontrole | Alleen weergave en leesnetlist uit oorspronkelijk 1.81-schema gemaakt onder `tmp/`; relevante connectornetten met oorspronkelijke PCB-padnetten vergeleken. Fontconfig-/tijdelijke-lockwaarschuwingen bij export, wel leesbare uitvoer; geen eigen ontwerp of ERC/DRC |
 | CAN-protocol | Officiële 2.0-PDF gedownload, relevante pagina's bekeken; geen live busmeting |
 | S88-protocol | RCD-688 rechtstreeks bij RailCommunity geraadpleegd |
 | ESP32-module | v1.8-variant-/pintabellen en PSRAM-/strapbeperkingen gecontroleerd |
@@ -41,6 +49,8 @@ een generieke CAN- of S88-adapter.
 | Elektrische veiligheid / werkelijke pinouts | **Niet fysiek geverifieerd:** geen toegang tot de hardware |
 
 Een geslaagde CLI-versie-/helpaanroep is geen ERC-/DRC-resultaat.
+Ook de netlistexport en bron-/padvergelijking zijn geen ERC/DRC en geen
+fysieke elektrische controle.
 Er zijn geen groene fictieve checkrapporten of lege proef-PCB's gemaakt.
 
 ## 3. Automatische KiCad-controles in de volgende fasen
@@ -101,6 +111,13 @@ Simulatie stopt aan de digitale interface. De bankproeven M08–M13 en
 de vergelijking met de echte installatie blijven afzonderlijk vereist.
 
 ## 5. Git- en releasebeleid
+
+De GitHub-repository is **gepubliceerd** op
+[Calimerorulez/modelrail-analyzer](https://github.com/Calimerorulez/modelrail-analyzer).
+`origin` verwijst naar `https://github.com/Calimerorulez/modelrail-analyzer.git`.
+De eerdere commits `0aefe4a` en `5558256` zijn naar `main` gepusht en
+remote bevestigd. De documentatiecorrectie gaat naar dezelfde branch;
+een push geldt pas als bevestigd na een overeenkomende `git ls-remote`-SHA.
 
 Elke inhoudelijke wijziging krijgt een gerichte commit. Identificeer
 bronrevisies en beslissingen in de wijziging. Geen persoonlijke Git-auteur
